@@ -1,4 +1,4 @@
-<header className="navbar flex justify-between">
+{/* <header className="navbar flex justify-between">
 
 <div>
     <a href="/" class="btn btn-ghost md:text-xl">
@@ -65,4 +65,4 @@
 </nav>
 
 
-</header>
+</header> */}
