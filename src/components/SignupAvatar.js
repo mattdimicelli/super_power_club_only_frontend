@@ -1,9 +1,10 @@
 import AvatarImg from './AvatarImg';
+import { Field } from 'formik';
 
 function SignupAvatar({char}) {
     return (
       <label className="avatar rounded hover:opacity-50">
-        <input
+        <Field
           type="radio"
           name="avatar"
           value={char}

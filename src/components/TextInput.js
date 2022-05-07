@@ -17,10 +17,12 @@ function TextInput({ label, ...props }) {
     return (
         <>
         {labelEl}
-        <input className="input input-bordered input-sm  mb-2" {...field} {...props} />
+
         {meta.touched && meta.error ? (
             <div className="text-error">{meta.error}</div>
         ): null}
+        
+        <input className="input input-bordered input-sm  mb-2" {...field} {...props} />
         </>
     );
 };
