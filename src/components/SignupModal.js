@@ -134,7 +134,20 @@ function SignupModal() {
             }, 400);
           }}
         >
-          <Form id="signup_form" className="form-control" action="/signup" method="post">
+        {formik => {
+
+          const handleChangeAdmin = (e) => {
+              console.log(e)
+              console.log(hiddenLabelRef.current.hidden);
+              console.log('boom')
+              console.log(formik.values.admin)
+              hiddenLabelRef.current.hidden = !hiddenLabelRef.current.hidden;
+              formik.handleChange(e);
+            
+          };
+          
+          return (
+            <Form id="signup_form" className="form-control" action="/signup" method="post">
             <TextInput label="First name:" name="signup_first_name" type="text" placeholder="First name" />
             <TextInput label="Last name:" name="signup_last_name" type="text" placeholder="Last name" />
             <TextInput label="Email address:" name="signup_email" placeholder="Email address" />
@@ -153,12 +166,12 @@ function SignupModal() {
               <div>
                 <label className="cursor-pointer label w-20">
                   <span className="label-text">Yes</span>
-                  <Field type="radio" className="radio" name="admin" value="true" />
+                  <input type="radio" className="radio" name="admin" value="true" id="true" onBlur={formik.handleBlur} onChange={formik.handleChange} />
                 </label>
               
                 <label className="cursor-pointer label w-20 mb-2">
                   <span className="label-text">No</span>
-                  <input type="radio" className="radio" name="admin" value="false" checked />
+                  <input type="radio" className="radio" name="admin" value="false" id="false" onBlur={formik.handleBlur} onChange={formik.handleChange} checked />
                 </label>
                 <label className="code-label" hidden ref={hiddenLabelRef}>
                   <div className="label-text mb-2">Enter the admin privilege code:</div>
@@ -171,6 +184,9 @@ function SignupModal() {
               <button type="submit" className="btn btn-secondary">Register for Basic Access</button>
             </div>
           </Form>
+          )
+        }
+        }
         </Formik>
       </div>
     </div>
